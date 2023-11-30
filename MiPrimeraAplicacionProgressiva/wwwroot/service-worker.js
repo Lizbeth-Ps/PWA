@@ -121,3 +121,16 @@ self.addEventListener("sync", event => {
 	event.waitUntil(respuesta)
 
 })
+
+self.addEventListener("push", event => {
+
+	var data = event.data.text()
+	var valores = data.split("_")
+	var titulo = valores[0]
+	var opciones = {
+		body: valores[1]
+	}
+	event.waitUntil(self.registration.showNotification(titulo, opciones))
+
+
+})

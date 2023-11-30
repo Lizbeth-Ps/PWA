@@ -50,7 +50,12 @@ function listarTipoLibro() {
 					type: "textarea"
 				}
 			]
-		]
+		],
+		callbackGuardar: function () {
+			var frm = new FormData();
+			frm.append("parametroPorContenido", "Prueba del Curso_Contenido de la alerta")
+			fetchPost("Notificacion/enviarNotificaciones", "text", frm, () => { })
+		}
 
 	}
 	)
