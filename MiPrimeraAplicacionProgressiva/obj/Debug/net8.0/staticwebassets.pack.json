@@ -17,6 +17,14 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Users\\Lenovo\\Downloads\\PWA\\MiPrimeraAplicacionProgressiva\\MiPrimeraAplicacionProgressiva\\wwwroot\\img\\icon-192.png",
+      "PackagePath": "staticwebassets\\img\\icon-192.png"
+    },
+    {
+      "Id": "C:\\Users\\Lenovo\\Downloads\\PWA\\MiPrimeraAplicacionProgressiva\\MiPrimeraAplicacionProgressiva\\wwwroot\\img\\icon-512.png",
+      "PackagePath": "staticwebassets\\img\\icon-512.png"
+    },
+    {
       "Id": "C:\\Users\\Lenovo\\Downloads\\PWA\\MiPrimeraAplicacionProgressiva\\MiPrimeraAplicacionProgressiva\\wwwroot\\img\\loading.gif",
       "PackagePath": "staticwebassets\\img\\loading.gif"
     },

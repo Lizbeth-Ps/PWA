@@ -53,7 +53,7 @@
     <script src="~/js/generic.js"></script>
     @await RenderSectionAsync("Scripts", required: false)
     <script>
-
+        var registroServiceWorker;
         window.ononline = function () {
             document.getElementById("opcionConexion").innerHTML = "<p class='text-success'>Conectado a Internet</p>"
         }
@@ -65,6 +65,40 @@
         if (navigator.serviceWorker) {
             console.log("Permite Service Worker")
             navigator.serviceWorker.register("/service-worker.js").then(res => {
+                registroServiceWorker = res
+                navigator.serviceWorker.ready.then(reg => {
+
+                    res.pushManager.getSubscription().then(subs => {
+
+                        if (subs == null) {
+                            fetchGet("Notificacion/generarLlavePublica", "text", function (key) {
+
+                                registroServiceWorker.pushManager.subscribe({
+                                    userVisibleOnly: true,
+                                    applicationServerKey: key
+                                }).then(data => data.toJSON())
+                                    .then(subscripcion => {
+                                        console.log(subscripcion)
+                                        var frm = new FormData();
+                                        frm.append("endpoint", subscripcion.endpoint)
+                                        frm.append("auth", subscripcion.keys.auth)
+                                        frm.append("p256dh", subscripcion.keys.p256dh)
+                                        fetchPost("Notificacion/guardarSubscripcion", "text", frm, function (rpta) {
+                                            if (rpta == 1) Exito("Se habilito notificaciones")
+                                            else Error("Ocurrio problemas con las notificaciones")
+                                        })
+                                    })
+
+                            })
+                        }
+
+                    })
+
+
+
+                })
+
+
                 console.log("Se registro el Service Worker")
             }).catch(err => {
                 console.log("No se registro el Service Worker")
