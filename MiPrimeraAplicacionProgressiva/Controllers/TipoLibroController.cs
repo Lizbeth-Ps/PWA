@@ -51,14 +51,31 @@ namespace MiPrimeraAplicacionProgressiva.Controllers
                 oTipoLibroCLS.iidtipolibro = oTipoLibro.Iidtipolibro;
                 oTipoLibroCLS.nombre = oTipoLibro.Nombretipolibro;
                 oTipoLibroCLS.descripcion = oTipoLibro.Descripcion;
+                oTipoLibroCLS.base64 = oTipoLibro.Archivo == null ? "" :
+                    "data:image/" + Path.GetExtension(oTipoLibro.Nombrearchivo) + ";base64," +
+                    Convert.ToBase64String(oTipoLibro.Archivo);
                 return oTipoLibroCLS;
             }
 
         }
 
-        public int guardarTipoLibro(TipoLibroCLS oTipoLibroCLS)
+        public int guardarTipoLibro(TipoLibroCLS oTipoLibroCLS, IFormFile fotoEnviar)
         {
             int rpta = 0;
+            byte[] buffer;
+            string nombreFoto = "";
+            if (fotoEnviar != null)
+            {
+                using (MemoryStream ms = new MemoryStream())
+                {
+                    fotoEnviar.CopyTo(ms);
+                    nombreFoto = fotoEnviar.FileName;
+                    buffer = ms.ToArray();
+                    oTipoLibroCLS.foto = buffer;
+                    oTipoLibroCLS.nombrefoto = nombreFoto;
+
+                }
+            }
             using (DbAa2316BdbibliotecaContext bd = new DbAa2316BdbibliotecaContext())
             {
                 try
@@ -68,6 +85,9 @@ namespace MiPrimeraAplicacionProgressiva.Controllers
                         TipoLibro oTipoLibro = new TipoLibro();
                         oTipoLibro.Nombretipolibro = oTipoLibroCLS.nombre;
                         oTipoLibro.Descripcion = oTipoLibroCLS.descripcion;
+                        oTipoLibro.Archivo = oTipoLibroCLS.foto;
+                        oTipoLibro.Nombrearchivo = oTipoLibroCLS.nombrefoto;
+
                         oTipoLibro.Bhabilitado = 1;
                         bd.TipoLibros.Add(oTipoLibro);
                         bd.SaveChanges();
@@ -79,6 +99,12 @@ namespace MiPrimeraAplicacionProgressiva.Controllers
                             bd.TipoLibros.Where(p => p.Iidtipolibro == oTipoLibroCLS.iidtipolibro).First();
                         oTipoLibro.Nombretipolibro = oTipoLibroCLS.nombre;
                         oTipoLibro.Descripcion = oTipoLibroCLS.descripcion;
+                        if (nombreFoto != "")
+                        {
+                            oTipoLibro.Archivo = oTipoLibroCLS.foto;
+                            oTipoLibro.Nombrearchivo = oTipoLibroCLS.nombrefoto;
+                        }
+
                         bd.SaveChanges();
                         rpta = 1;
                     }
