@@ -6,11 +6,12 @@ function listarTipoLibro() {
 
 	pintar({
 		url: "TipoLibro/listarTipoLibro",
-		propiedades: ["nombre", "descripcion"],
-		cabeceras: ["Tipo Libro", "Descripcion"],
+		propiedades: ["base64", "nombre"],
+		cabeceras: ["Foto", "Tipo Libro"],
 		titlePopup: "Tipo Libro",
 		rowClickRecuperar: true,
-		propiedadId: "iidtipolibro"
+		propiedadId: "iidtipolibro",
+		columnaimg: ["base64"]
 	},
 		{
 			url: "TipoLibro/listarTipoLibro",
@@ -41,13 +42,15 @@ function listarTipoLibro() {
 					class: "col-md-6",
 					label: "Nombre Tipo Libro",
 					name: "nombre",
-					type: "text"
+					type: "text",
+					classControl: "ob max-20"
 				},
 				{
 					class: "col-md-6",
 					label: "Descripcion Tipo Libro",
 					name: "descripcion",
-					type: "textarea"
+					type: "textarea",
+					classControl: "ob max-300"
 				},
 				{
 					class: "col-md-6",
@@ -65,7 +68,7 @@ function listarTipoLibro() {
 			var frm = new FormData();
 			var contenido = "Se guardo los cambios del tipo libro " + getN("nombre")
 			frm.append("parametroPorContenido", "Registro Satisfactorio_" + contenido + "_/img/icon-512.png")
-			fetchPost("Notificacion/enviarNotificaciones", "text", frm, () => { })
+			fetchPostSinLoading("Notificacion/enviarNotificaciones", "text", frm, () => { })
 		}
 
 	}

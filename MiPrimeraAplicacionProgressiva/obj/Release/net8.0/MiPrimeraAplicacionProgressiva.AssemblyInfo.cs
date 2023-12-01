@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MiPrimeraAplicacionProgressiva")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fb802edd0c57c6774c947f6b907d107da5681456")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+296f4dd3b84606890fa8b782bb6e76b50c21cb49")]
 [assembly: System.Reflection.AssemblyProductAttribute("MiPrimeraAplicacionProgressiva")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MiPrimeraAplicacionProgressiva")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

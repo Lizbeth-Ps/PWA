@@ -17,51 +17,51 @@ build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = MiPrimeraAplicacionProgressiva
 build_property.RootNamespace = MiPrimeraAplicacionProgressiva
-build_property.ProjectDir = C:\Users\Lenovo\Downloads\PWA\MiPrimeraAplicacionProgressiva\MiPrimeraAplicacionProgressiva\
+build_property.ProjectDir = D:\Descargas\PWA2\PWA\MiPrimeraAplicacionProgressiva\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\Lenovo\Downloads\PWA\MiPrimeraAplicacionProgressiva\MiPrimeraAplicacionProgressiva
+build_property.MSBuildProjectDirectory = D:\Descargas\PWA2\PWA\MiPrimeraAplicacionProgressiva
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/Lenovo/Downloads/PWA/MiPrimeraAplicacionProgressiva/MiPrimeraAplicacionProgressiva/Views/Home/Index.cshtml]
+[D:/Descargas/PWA2/PWA/MiPrimeraAplicacionProgressiva/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lenovo/Downloads/PWA/MiPrimeraAplicacionProgressiva/MiPrimeraAplicacionProgressiva/Views/Home/Privacy.cshtml]
+[D:/Descargas/PWA2/PWA/MiPrimeraAplicacionProgressiva/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lenovo/Downloads/PWA/MiPrimeraAplicacionProgressiva/MiPrimeraAplicacionProgressiva/Views/PaginaError/Index.cshtml]
+[D:/Descargas/PWA2/PWA/MiPrimeraAplicacionProgressiva/Views/PaginaError/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFnaW5hRXJyb3JcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lenovo/Downloads/PWA/MiPrimeraAplicacionProgressiva/MiPrimeraAplicacionProgressiva/Views/Persona/Index.cshtml]
+[D:/Descargas/PWA2/PWA/MiPrimeraAplicacionProgressiva/Views/Persona/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVyc29uYVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lenovo/Downloads/PWA/MiPrimeraAplicacionProgressiva/MiPrimeraAplicacionProgressiva/Views/Shared/Error.cshtml]
+[D:/Descargas/PWA2/PWA/MiPrimeraAplicacionProgressiva/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lenovo/Downloads/PWA/MiPrimeraAplicacionProgressiva/MiPrimeraAplicacionProgressiva/Views/Shared/_ValidationScriptsPartial.cshtml]
+[D:/Descargas/PWA2/PWA/MiPrimeraAplicacionProgressiva/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lenovo/Downloads/PWA/MiPrimeraAplicacionProgressiva/MiPrimeraAplicacionProgressiva/Views/TipoLibro/Index.cshtml]
+[D:/Descargas/PWA2/PWA/MiPrimeraAplicacionProgressiva/Views/TipoLibro/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGlwb0xpYnJvXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lenovo/Downloads/PWA/MiPrimeraAplicacionProgressiva/MiPrimeraAplicacionProgressiva/Views/_ViewImports.cshtml]
+[D:/Descargas/PWA2/PWA/MiPrimeraAplicacionProgressiva/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lenovo/Downloads/PWA/MiPrimeraAplicacionProgressiva/MiPrimeraAplicacionProgressiva/Views/_ViewStart.cshtml]
+[D:/Descargas/PWA2/PWA/MiPrimeraAplicacionProgressiva/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lenovo/Downloads/PWA/MiPrimeraAplicacionProgressiva/MiPrimeraAplicacionProgressiva/Views/Shared/_Layout.cshtml]
+[D:/Descargas/PWA2/PWA/MiPrimeraAplicacionProgressiva/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-3xckt6ho0r

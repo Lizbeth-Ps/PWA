@@ -5,6 +5,14 @@ namespace MiPrimeraAplicacionProgressiva.Controllers
 {
     public class TipoLibroController : Controller
     {
+
+        private readonly IWebHostEnvironment _env;
+
+        public TipoLibroController(IWebHostEnvironment env)
+        {
+            _env = env;
+        }
+
         public IActionResult Index()
         {
             return View();
@@ -13,6 +21,10 @@ namespace MiPrimeraAplicacionProgressiva.Controllers
         public List<TipoLibroCLS> listarTipoLibro(string nombretipolibrobusqueda)
         {
             List<TipoLibroCLS> lista = new List<TipoLibroCLS>();
+            string rutaCompleta = Path.Combine(_env.ContentRootPath, "wwwroot/img/nofoto.png");
+            byte[] buffer = System.IO.File.ReadAllBytes(rutaCompleta);
+            string base64nofoto = Convert.ToBase64String(buffer);
+            string base64nofotofinal = "data:image/png;base64," + base64nofoto;
             using (DbAa2316BdbibliotecaContext bd = new DbAa2316BdbibliotecaContext())
             {
                 if (nombretipolibrobusqueda == null)
@@ -22,7 +34,10 @@ namespace MiPrimeraAplicacionProgressiva.Controllers
                              {
                                  iidtipolibro = tipolibro.Iidtipolibro,
                                  nombre = tipolibro.Nombretipolibro,
-                                 descripcion = tipolibro.Descripcion
+                                 descripcion = tipolibro.Descripcion,
+                                 base64 = tipolibro.Nombrearchivo == null ? base64nofotofinal
+                                 : "data:image/" + Path.GetExtension(tipolibro.Nombrearchivo).Replace(".", "") + ";base64," +
+                                    Convert.ToBase64String(tipolibro.Archivo)
                              }).ToList();
                 else
                     lista = (from tipolibro in bd.TipoLibros
@@ -32,7 +47,10 @@ namespace MiPrimeraAplicacionProgressiva.Controllers
                              {
                                  iidtipolibro = tipolibro.Iidtipolibro,
                                  nombre = tipolibro.Nombretipolibro,
-                                 descripcion = tipolibro.Descripcion
+                                 descripcion = tipolibro.Descripcion,
+                                 base64 = tipolibro.Nombrearchivo == null ? base64nofotofinal
+                             : "data:image/" + Path.GetExtension(tipolibro.Nombrearchivo).Replace(".", "") + ";base64," +
+                                Convert.ToBase64String(tipolibro.Archivo)
                              }).ToList();
                 return lista;
 
@@ -52,7 +70,7 @@ namespace MiPrimeraAplicacionProgressiva.Controllers
                 oTipoLibroCLS.nombre = oTipoLibro.Nombretipolibro;
                 oTipoLibroCLS.descripcion = oTipoLibro.Descripcion;
                 oTipoLibroCLS.base64 = oTipoLibro.Archivo == null ? "" :
-                    "data:image/" + Path.GetExtension(oTipoLibro.Nombrearchivo) + ";base64," +
+                    "data:image/" + Path.GetExtension(oTipoLibro.Nombrearchivo).Replace(".", "") + ";base64," +
                     Convert.ToBase64String(oTipoLibro.Archivo);
                 return oTipoLibroCLS;
             }

@@ -21,7 +21,7 @@ namespace MiPrimeraAplicacionProgressiva.Controllers
         public async Task<int> enviarNotificaciones(string parametroPorContenido)
         {
             int rpta = 0;
-            string subject = @"pwa2023pl@gmail.com";
+            string subject = @"mailto:pwa2023pl@gmail.com";
             string clavePublica = Notificaciones.llavePublica;
             string clavePrivada = Notificaciones.llavePrivada;
             PushSubscription oPushSubscription;

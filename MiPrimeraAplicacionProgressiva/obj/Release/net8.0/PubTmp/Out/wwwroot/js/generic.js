@@ -33,7 +33,7 @@ function setSRC(namecontrol, valor, idformulario) {
         document.querySelector("#" + idformulario + " [name='" + namecontrol + "']").src = valor;
     }
 }
-function recuperarGenerico(url, idformulario,callback) {
+function recuperarGenerico(url, idformulario) {
     //Todos los elementos
     var elementosName = document.querySelectorAll("#" + idformulario + " [name]");
     var nombrename;
@@ -67,10 +67,6 @@ function recuperarGenerico(url, idformulario,callback) {
                     setC("#" + idformulario + " [type='checkbox'][name='" + nombrename + "'][value='" + valores + "']")
                 }
             }
-           
-        }
-        if (callback != undefined) {
-            callback(data);
         }
     });
 }
@@ -267,7 +263,7 @@ function getN(namecontrol) {
 
 function Error(titulo = "Error", texto = "Ocurrio un error") {
     if (titulo != "No transport could be initialized successfully. Try specifying a different transport or none at all for auto initialization."
-        && titulo != "Error during negotiation request." && titulo!="Error parsing negotiate response."
+        && titulo != "Error during negotiation request." && titulo != "Error parsing negotiate response."
     )
         Swal.fire({
             icon: 'error',
@@ -315,7 +311,7 @@ function LimpiarDatos(idformulario) {
             document.getElementById(elementoActual.id).selectedIndex = 0;
         }
         else if (elementoActual.tagName.toUpperCase() == "IMG") {
-            document.getElementById(elementoActual.id).style.visibility="hidden"
+            document.getElementById(elementoActual.id).style.visibility = "hidden"
             setSRC(elementoName, "", idformulario)
         }
         else if ((elementoActual.tagName.toUpperCase() == "INPUT" && elementoActual.type.toUpperCase() != "RADIO")
@@ -382,8 +378,8 @@ async function fetchGet(url, tiporespuesta, callback, retorno = false) {
         else {
             alert("Ocurrion un error");
             return rpta;
-		}
-       
+        }
+
     }
 }
 //[{"iidlaboratorio":1,"nombre":"SynLab","direccion":null,"personacontacto":null}
@@ -436,27 +432,7 @@ async function fetchPost(url, tiporespuesta, frm, callback) {
     }
 }
 
-async function fetchPostSinLoading(url, tiporespuesta, frm, callback) {
-    try {
-        var raiz = document.getElementById("hdfOculto").value;
-        //http://localhost........
-        var urlCompleta = window.location.protocol + "//" + window.location.host + "/" + raiz + url
-        var res = await fetch(urlCompleta, {
-            method: "POST",
-            body: frm
-        });
-        if (tiporespuesta == "json")
-            res = await res.json();
-        else if (tiporespuesta == "text")
-            res = await res.text();
-        //JSON (Object)
-        callback(res)
 
-    } catch (e) {
-        console.log(e)
-        alert("Ocurrion un error");
-    }
-}
 
 
 var objConfiguracionGlobal;
@@ -712,17 +688,17 @@ function generarTabla(res) {
     var existeIdCheck = false;
     contenido += "<tbody id='tbody'>";
     for (var i = inicio; i < fin; i++) {
-        if (nregistros-1 >= i) {
+        if (nregistros - 1 >= i) {
             obj = res[i]
             contenido += `<tr ${objConfiguracionGlobal != null && objConfiguracionGlobal.cursor != undefined ?
                 "style='cursor:pointer'" : ''}
 
                         ${objConfiguracionGlobal != null && objConfiguracionGlobal.rowClickRecuperar != undefined ?
-                `onclick='rowClickRecuperarGenerico(${obj[objConfiguracionGlobal.propiedadId]})'
+                    `onclick='rowClickRecuperarGenerico(${obj[objConfiguracionGlobal.propiedadId]})'
                     style='cursor:pointer'` : ""}
 
                         ${objConfiguracionGlobal != null && objConfiguracionGlobal.rowClick != undefined ?
-                `onclick='rowClickEvent(${JSON.stringify(obj)})'` : ""}
+                    `onclick='rowClickEvent(${JSON.stringify(obj)})'` : ""}
                   >`;
             if (objConfiguracionGlobal != undefined && objConfiguracionGlobal.check == true) {
                 existeIdCheck = (idsChecks.indexOf(obj[objConfiguracionGlobal.propiedadId]) > -1);
@@ -755,8 +731,7 @@ function generarTabla(res) {
 
 
 function rowClickRecuperarGenerico(id) {
-    if ((objFormularioGlobal != undefined && objFormularioGlobal.type == "popup") || (objConfiguracionGlobal != undefined
-        && objConfiguracionGlobal.type == "popup")) {
+    if (objFormularioGlobal.type == "popup") {
         var myModal = new bootstrap.Modal(document.getElementById(objConfiguracionGlobal.popupId), {
             keyboard: false
         })
@@ -764,12 +739,9 @@ function rowClickRecuperarGenerico(id) {
         setI("lbltitulo", "Editar " + objConfiguracionGlobal.titlePopup)
 
     }
-    if (objFormularioGlobal != undefined && objFormularioGlobal.parametrorecuperar != undefined)
+    if (objFormularioGlobal.parametrorecuperar != undefined)
         recuperarGenerico("" + objFormularioGlobal.urlrecuperar + "/?" + objFormularioGlobal.parametrorecuperar + "=" + id,
             objFormularioGlobal.idformulario)
-    if (objConfiguracionGlobal.callbackrecuperar != undefined) {
-        objConfiguracionGlobal.callbackrecuperar(id);
-    }
 }
 
 function configurarPaginacion() {
@@ -996,7 +968,7 @@ function GuardarGenericoFormulario(idformulario, type) {
                     document.getElementById("btnCerrarModal").click();
                 }
                 Exito("Se guardo la informacion , cuando tenga internet viajara al Servidor")
-			}else
+            } else
                 Error();
 
         })
@@ -1018,7 +990,7 @@ function LimpiarGenericoBusqueda(idformulario) {
             parametros += "&" + pair[0] + "=" + pair[1];
         c++;
     }
-    fetchGet(objConfiguracionGlobal.url + parametros,"json", function (res) {
+    fetchGet(objConfiguracionGlobal.url + parametros, "json", function (res) {
         if (typeof (res) == "object") {
             dataCompleta = res;
             InicializarPaginacion();
@@ -1027,8 +999,8 @@ function LimpiarGenericoBusqueda(idformulario) {
             configurarPaginacion()
         } else {
             document.getElementById(objConfiguracionGlobal.divContenedorTabla).innerHTML = res;
-		}
-        
+        }
+
     })
 
 
@@ -1042,10 +1014,10 @@ function LimpiarGenericoBusqueda(idformulario) {
 function BuscarDatosGenericoBusqueda(id) {
     var formu = document.getElementById(id);
     var frm = new FormData(formu);
-    var parametros="";
+    var parametros = "";
     var c = 0;
     for (var pair of frm.entries()) {
-        if(c==0)
+        if (c == 0)
             parametros += "/?" + pair[0] + "=" + pair[1];
         else
             parametros += "&" + pair[0] + "=" + pair[1];
@@ -1060,8 +1032,8 @@ function BuscarDatosGenericoBusqueda(id) {
             configurarPaginacion()
         } else {
             document.getElementById(objConfiguracionGlobal.divContenedorTabla).innerHTML = res;
-		}
-     
+        }
+
     })
 }
 
@@ -1162,7 +1134,7 @@ function previewImage(input, idimagen) {
     var file = input.files[0];
     //control img
     var img = document.getElementById(idimagen);
-    img.style.visibility="visible"
+    img.style.visibility = "visible"
     var reader = new FileReader();
     reader.onloadend = function () {
         img.src = reader.result;
@@ -1250,17 +1222,4 @@ function pintarExcelGenerico(idelemento, dataCadena, editable, especificoeditabl
     contenido += "</div>"
     setI(idelemento, contenido);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 

@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Lenovo\\Downloads\\PWA\\MiPrimeraAplicacionProgressiva\\MiPrimeraAplicacionProgressiva\\MiPrimeraAplicacionProgressiva.csproj": {}
+    "D:\\Descargas\\PWA2\\PWA\\MiPrimeraAplicacionProgressiva\\MiPrimeraAplicacionProgressiva.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Lenovo\\Downloads\\PWA\\MiPrimeraAplicacionProgressiva\\MiPrimeraAplicacionProgressiva\\MiPrimeraAplicacionProgressiva.csproj": {
+    "D:\\Descargas\\PWA2\\PWA\\MiPrimeraAplicacionProgressiva\\MiPrimeraAplicacionProgressiva.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Lenovo\\Downloads\\PWA\\MiPrimeraAplicacionProgressiva\\MiPrimeraAplicacionProgressiva\\MiPrimeraAplicacionProgressiva.csproj",
+        "projectUniqueName": "D:\\Descargas\\PWA2\\PWA\\MiPrimeraAplicacionProgressiva\\MiPrimeraAplicacionProgressiva.csproj",
         "projectName": "MiPrimeraAplicacionProgressiva",
-        "projectPath": "C:\\Users\\Lenovo\\Downloads\\PWA\\MiPrimeraAplicacionProgressiva\\MiPrimeraAplicacionProgressiva\\MiPrimeraAplicacionProgressiva.csproj",
-        "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Lenovo\\Downloads\\PWA\\MiPrimeraAplicacionProgressiva\\MiPrimeraAplicacionProgressiva\\obj\\",
+        "projectPath": "D:\\Descargas\\PWA2\\PWA\\MiPrimeraAplicacionProgressiva\\MiPrimeraAplicacionProgressiva.csproj",
+        "packagesPath": "C:\\Users\\lizps\\.nuget\\packages\\",
+        "outputPath": "D:\\Descargas\\PWA2\\PWA\\MiPrimeraAplicacionProgressiva\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\lizps\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
