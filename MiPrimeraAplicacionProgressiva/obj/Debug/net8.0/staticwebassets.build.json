@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "elgmyNTaxqWlyakr7ymcKNeM4K9OdMv/gbn7L0E0DF4=",
+  "Hash": "7KZbZGik53vWV4W9JEmZD2+dncWmZgrG0MBhXkvGa6o=",
   "Source": "MiPrimeraAplicacionProgressiva",
   "BasePath": "_content/MiPrimeraAplicacionProgressiva",
   "Mode": "Default",
@@ -226,6 +226,25 @@
       "OriginalItemSpec": "wwwroot\\img\\noFoto.png"
     },
     {
+      "Identity": "D:\\Descargas\\PWA2\\PWA\\MiPrimeraAplicacionProgressiva\\wwwroot\\js\\galeria.js",
+      "SourceId": "MiPrimeraAplicacionProgressiva",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Descargas\\PWA2\\PWA\\MiPrimeraAplicacionProgressiva\\wwwroot\\",
+      "BasePath": "_content/MiPrimeraAplicacionProgressiva",
+      "RelativePath": "js/galeria.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\galeria.js"
+    },
+    {
       "Identity": "D:\\Descargas\\PWA2\\PWA\\MiPrimeraAplicacionProgressiva\\wwwroot\\js\\generic.js",
       "SourceId": "MiPrimeraAplicacionProgressiva",
       "SourceType": "Discovered",
@@ -243,6 +262,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\generic.js"
+    },
+    {
+      "Identity": "D:\\Descargas\\PWA2\\PWA\\MiPrimeraAplicacionProgressiva\\wwwroot\\js\\html2canvas.js",
+      "SourceId": "MiPrimeraAplicacionProgressiva",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Descargas\\PWA2\\PWA\\MiPrimeraAplicacionProgressiva\\wwwroot\\",
+      "BasePath": "_content/MiPrimeraAplicacionProgressiva",
+      "RelativePath": "js/html2canvas.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\html2canvas.js"
     },
     {
       "Identity": "D:\\Descargas\\PWA2\\PWA\\MiPrimeraAplicacionProgressiva\\wwwroot\\js\\libro.js",

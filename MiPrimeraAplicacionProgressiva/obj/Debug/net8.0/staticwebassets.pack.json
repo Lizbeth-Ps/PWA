@@ -33,8 +33,16 @@
       "PackagePath": "staticwebassets\\img\\noFoto.png"
     },
     {
+      "Id": "D:\\Descargas\\PWA2\\PWA\\MiPrimeraAplicacionProgressiva\\wwwroot\\js\\galeria.js",
+      "PackagePath": "staticwebassets\\js\\galeria.js"
+    },
+    {
       "Id": "D:\\Descargas\\PWA2\\PWA\\MiPrimeraAplicacionProgressiva\\wwwroot\\js\\generic.js",
       "PackagePath": "staticwebassets\\js\\generic.js"
+    },
+    {
+      "Id": "D:\\Descargas\\PWA2\\PWA\\MiPrimeraAplicacionProgressiva\\wwwroot\\js\\html2canvas.js",
+      "PackagePath": "staticwebassets\\js\\html2canvas.js"
     },
     {
       "Id": "D:\\Descargas\\PWA2\\PWA\\MiPrimeraAplicacionProgressiva\\wwwroot\\js\\libro.js",
