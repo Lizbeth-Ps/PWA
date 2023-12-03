@@ -1,12 +1,23 @@
 ﻿window.onload = function () {
 	listarCard();
+	paginaVisible(() => {
+		document.location.href = "/Comentario/Index"
+	})
+}
+
+var bc = new BroadcastChannel("TipoLibro")
+bc.onmessage = (msg) => {
+	var data = msg.data;
+	var array = data.split("_")
+	var id = array[0]
+	var nombre = array[1]
+	setI("cardtitle" + id, nombre)
 }
 
 function listarCard() {
 	var contenido = "";
 	var objActual;
 	fetchGet("TipoLibro/listarTipoLibro", "json", function (data) {
-
 		for (var i = 0; i < data.length; i++) {
 			objActual = data[i]
 			contenido += `
@@ -14,9 +25,9 @@ function listarCard() {
 						<div class="card m-auto" style="width: 18rem;">
 						  <img  style='height:200px' src="${objActual.base64}" class="card-img-top" alt="...">
 						  <div class="card-body">
-							<h5 class="card-title">${objActual.nombre}</h5>
+							<h5 class="card-title" id="cardtitle${objActual.iidtipolibro}">${objActual.nombre}</h5>
 							<p class="card-text">${objActual.descripcion}</p>
-							<button class="btn btn-primary" onclick='Compartir("${objActual.nombre}","${objActual.descripcion}")'>
+							<button class="btn btn-primary" onclick='Compartir("${objActual.nombre}","${objActual.descripcion}","${objActual.base64}")'>
 								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-share" viewBox="0 0 16 16">
 								  <path d="M13.5 1a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.499 2.499 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5zm-8.5 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm11 5.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z"/>
 								</svg>
@@ -64,8 +75,9 @@ function listarCard() {
 
 }
 
-function Compartir(nombre, descripcion) {
-	compartirDatosAplicaciones(nombre, descripcion, "https://localhost:7283/Galeria/Index")
+function Compartir(nombre, descripcion, foto) {
+	compartirImagen(nombre, descripcion, foto)
+	//compartirDatosAplicaciones(nombre, descripcion,"https://localhost:7283/Galeria/Index")
 }
 
 function Copiar(nombre, descripcion) {

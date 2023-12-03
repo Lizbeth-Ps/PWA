@@ -40,11 +40,11 @@ html {
 }
 
 body {
-    font-family: "Rubik", Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Nunito', sans-serif;
     font-size: 1rem;
     font-weight: 400;
     line-height: 1.5;
-    color: var(--color-black);
+    color: #A2C8CC;
     background: var(--color-white);
 }
 
@@ -58,6 +58,7 @@ button {
     outline: none;
     background: none;
     text-decoration: none;
+    color: #95fab9;
 }
 
 img,
@@ -212,14 +213,14 @@ video {
     line-height: inherit;
     padding: 0.625rem 1.5rem;
     border: none;
-    color: var(--color-black);
+    color: #bc98f3;
     text-transform: uppercase;
     text-rendering: optimizeLegibility;
     transition: all 0.35s ease;
 }
 
     .header .menu-link:hover {
-        color: var(--color-pink-600);
+        color: #ffe5f0;
     }
 
 @media only screen and (min-width: 768px) {
@@ -246,3 +247,16 @@ video {
         opacity: 1;
         visibility: visible;
     }
+
+.btn {
+    background-color: #f3a8c2;
+    color: #fff; /* Puedes ajustar el color del texto según la visibilidad en el nuevo fondo */
+    border-color: #f3a8c2; /* Puedes ajustar el color del borde según el fondo del botón */
+}
+
+    .btn:hover {
+        background-color: #c999af; /* Cambia el color al pasar el mouse según tu paleta de colores pastel */
+        border-color: #c999af; /* Ajusta el color del borde al pasar el mouse */
+        color: #fff; /* Puedes ajustar el color del texto al pasar el mouse según la visibilidad en el nuevo fondo */
+    }
+

@@ -1252,11 +1252,49 @@ function pintarExcelGenerico(idelemento, dataCadena, editable, especificoeditabl
 }
 
 
+async function seleccionarContacto(contactos) {
+
+    const isSupported = ('contacts' in navigator && 'ContactsManager' in window);
+    const availableProperties = await navigator.contacts.getProperties();
+    if (isSupported && availableProperties.includes('tel')) {
+        try {
+            const props = ['icon', 'name', 'tel', 'email', 'address'];
+            const opts = { multiple: true };
+            const contacts = await navigator.contacts.select(props, opts);
+            contactos(contacts);
+        } catch {
+            console.log("Ocurrio un error")
+        }
+    } else {
+        console.log('No se puede acceder a la API de contactos')
+    }
+
+
+}
+
+
 function IniciarCamara(idvideo) {
     if (navigator.mediaDevices) {
         var videoFoto = document.getElementById(idvideo)
         navigator.mediaDevices.getUserMedia({
             video: true,
+            audio: false
+        }
+        ).then(stream => {
+            videoFoto.srcObject = stream;
+        }).catch(err => {
+            alert(err)
+        });
+    }
+}
+
+function IniciarCamaraAtras(idvideo) {
+    if (navigator.mediaDevices) {
+        var videoFoto = document.getElementById(idvideo)
+        navigator.mediaDevices.getUserMedia({
+            video: {
+                facingMode: "environment"
+            },
             audio: false
         }
         ).then(stream => {
@@ -1344,3 +1382,213 @@ function VozTexto(texto) {
     }
 
 }
+
+function vibrarTelefono(tiempo = 500) {
+    if (navigator.vibrate)
+        navigator.vibrate([tiempo])
+}
+
+function startListening(callback) {
+    var recognition = new (webkitSpeechRecognition || SpeechRecognition)();
+    recognition.lang = 'en-US';
+    recognition.continuous = true;
+    recognition.interimResults = false;
+    recognition.maxAlternatives = 1;
+    recognition.start();
+    recognition.onresult = function () {
+        callback(event.results[event.results.length - 1][0].transcript.trim());
+    };
+}
+
+async function b64toBlob(base64) {
+    const base64Response = await fetch(base64);
+    const blob = await base64Response.blob();
+    return URL.createObjectURL(blob)
+}
+
+
+async function compartirImagen(titulo, texto, base64) {
+    const urlBlob = await b64toBlob(base64);
+    const img = await fetch(urlBlob);
+    const blob = await img.blob();
+    filesArray = [
+        new File([blob], 'share.jpg', {
+            type: 'image/jpeg',
+            lastModified: new Date().getTime()
+        })
+    ];
+    const dt = new DataTransfer();
+    dt.items.add(filesArray[0]);
+    var files = dt.files;
+    if (navigator.canShare({ files })) {
+        await navigator.share({
+            title: titulo,
+            text: texto,
+            files
+        });
+    }
+
+}
+var wakeLock
+async function bloqueoPantalla() {
+    if ('wakeLock' in navigator) {
+        try {
+            wakeLock = await navigator.wakeLock.request();
+        }
+        catch (err) {
+            console.log(`${err.message}`);
+        }
+    }
+}
+
+const visiblePantalla = async () => {
+    if (wakeLock !== null && document.visibilityState === 'visible') {
+        await bloqueoPantalla();
+    }
+};
+
+document.addEventListener('visibilitychange', visiblePantalla);
+
+var header
+navigator.getBattery().then(bateria => {
+    header = document.getElementById("header");
+    var porcentaje;
+    porcentaje = bateria.level * 100;
+    if (porcentaje < 15) {
+        header.style.backgroundColor = "#C82333";
+    } else if (porcentaje < 45) {
+        header.style.backgroundColor = "#E0A800";
+    } else {
+        header.style.backgroundColor = "white";
+    }
+    bateria.addEventListener("levelchange", function () {
+        porcentaje = bateria.level * 100;
+        if (porcentaje < 15) {
+            header.style.backgroundColor = "#C82333";
+        } else if (porcentaje < 45) {
+            header.style.backgroundColor = "#E0A800";
+        } else {
+            header.style.backgroundColor = "white";
+        }
+    })
+})
+
+
+
+async function seleccionarContacto(contactos) {
+
+    const isSupported = ('contacts' in navigator && 'ContactsManager' in window);
+    const availableProperties = await navigator.contacts.getProperties();
+    if (isSupported && availableProperties.includes('tel')) {
+        try {
+            const props = ['icon', 'name', 'tel', 'email', 'address'];
+            const opts = { multiple: true };
+            const contacts = await navigator.contacts.select(props, opts);
+            contactos(contacts);
+        } catch {
+            console.log("Ocurrio un error")
+        }
+    } else {
+        console.log('No se puede acceder a la API de contactos')
+    }
+
+
+}
+
+let deferredPrompt;
+
+window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault();
+    deferredPrompt = e;
+});
+
+async function Instalar() {
+    if (deferredPrompt !== null && deferredPrompt != undefined) {
+        deferredPrompt.prompt();
+        const { outcome } = await deferredPrompt.userChoice;
+        if (outcome === 'accepted') {
+            deferredPrompt = null;
+        }
+    }
+}
+
+
+function getPWADisplayMode() {
+    const isStandalone = window.matchMedia('(display-mode: standalone)').matches;
+    if (document.referrer.startsWith('android-app://')) {
+        return 'twa';
+    } else if (navigator.standalone || isStandalone) {
+        return 'standalone';
+    }
+    return 'browser';
+}
+
+var controller = new AbortController();
+var signal = controller.signal;
+async function DetectarInactividad(tiempoSegundos, callbackInactivo, callbackActivo) {
+    if (await IdleDetector.requestPermission() != "granted") {
+        return false;
+    }
+    var oIdleDetector = new IdleDetector();
+    oIdleDetector.addEventListener("change", (e) => {
+        var useState = oIdleDetector.userState;
+        if (useState == "idle") callbackInactivo();
+        else callbackActivo();
+    })
+    await oIdleDetector.start({
+        threshold: tiempoSegundos * 1000,
+        signal
+    })
+}
+
+
+function paginaVisible(callbackOculta, callbackVisible) {
+    document.addEventListener("visibilitychange", () => {
+        if (document.visibilityState === "hidden") {
+            callbackOculta()
+        }
+        else {
+            callbackVisible()
+        }
+    })
+}
+
+function verMapa(id, longitud, latitud) {
+
+    var map = new ol.Map({
+        layers: [
+            new ol.layer.Tile({
+                source: new ol.source.OSM()
+            })
+        ],
+        target: id,
+        view: new ol.View({
+            center: ol.proj.fromLonLat([longitud, latitud]),
+            zoom: 17
+        })
+    });
+
+    var layer = new ol.layer.Vector({
+        source: new ol.source.Vector({
+            features: [
+                new ol.Feature({
+                    geometry: new ol.geom.Point(ol.proj.fromLonLat([longitud, latitud]))
+                })
+            ]
+        })
+    });
+    map.addLayer(layer);
+
+    setTimeout(function () {
+        map.updateSize();
+    }, 200);
+
+}
+
+
+
+
+
+
+
+

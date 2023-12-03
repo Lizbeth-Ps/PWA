@@ -3,7 +3,7 @@
 }
 
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="Nuevo()">
+<button id="btnNuevo" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="Nuevo()">
     Nuevo
 </button>
 
@@ -64,7 +64,7 @@
                             <label>Tomar Foto de la Camara</label>
                             <video width="300" height="300" autoplay id="videoFoto" style="border:1px solid"></video>
                             <br />
-                            <button type="button" class="btn btn-primary" onclick="IniciarCamara('videoFoto')">Iniciar Camara</button>
+                            <button type="button" class="btn btn-primary" onclick="IniciarCamaraAtras('videoFoto')">Iniciar Camara</button>
                             <button type="button" class="btn btn-primary" onclick="ApagarCamara('videoFoto')">Tomar Foto</button>
                         </div>
 

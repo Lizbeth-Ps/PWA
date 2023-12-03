@@ -3,14 +3,14 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - MiPrimeraAplicacionProgressiva</title>
+    <title>@ViewData["Title"] - PWA</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/menu.css" />
     <link rel="stylesheet" href="~/MiPrimeraAplicacionProgressiva.styles.css" />
     <link rel="manifest" href="/manifest.json" />
 </head>
 <body>
-    <header class="header">
+    <header class="header" id="header" >
         <div class="container">
             <nav class="navbar">
                 <b id="opcionConexion"> <p class="text-success">Conectado a Internet</p> </b>
@@ -26,8 +26,17 @@
                         <li class="menu-item"><a class="menu-link" href="/TipoLibro/Index">Tipo Libro</a></li>
                         <li class="menu-item"><a class="menu-link" href="/Libro/Index">Libro</a></li>
                         <li class="menu-item"><a class="menu-link" href="/Galeria/Index">Galeria</a></li>
-                        <li class="menu-item"><a class="menu-link" href="#">PAGINA 5</a></li>
-                        <li class="menu-item"><a class="menu-link" href="#">PAGINA 6</a></li>
+                        <li class="menu-item"><a class="menu-link" href="/Contactos/Index">Contactos</a></li>
+                        <li class="menu-item"><a class="menu-link" href="/Comentario/Index">Comentario</a></li>
+                        <li class="menu-item"><a class="menu-link" href="/Ubicacion/Index">Ubicacion</a></li>
+
+                        <li class="menu-item" id="menuInstalar"><a class="menu-link" onclick="Instalar()">Instalar</a></li>
+                        <li class="menu-item">
+                            <a class="menu-link">
+                                <button onclick="Permiso()" class="btn">Agregar Permisos</button>
+                            </a>
+                        </li>
+
                     </ul>
                 </div>
             </nav>
@@ -51,9 +60,11 @@
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/menu.js"></script>
     <script src="~/js/sweetalert.js"></script>
-    <script src="~/js/generic.js"></script>
+    <script src="~/js/generic.js?v=21"></script>
     @await RenderSectionAsync("Scripts", required: false)
     <script>
+
+
         var registroServiceWorker;
         window.ononline = function () {
             document.getElementById("opcionConexion").innerHTML = "<p class='text-success'>Conectado a Internet</p>"
@@ -63,11 +74,14 @@
             document.getElementById("opcionConexion").innerHTML = "<p class='text-danger'>Sin Conexion a la Red</p>"
         }
 
+        bloqueoPantalla();
+
         if (navigator.serviceWorker) {
             console.log("Permite Service Worker")
             navigator.serviceWorker.register("/service-worker.js").then(res => {
                 registroServiceWorker = res
                 navigator.serviceWorker.ready.then(reg => {
+
 
                     res.pushManager.getSubscription().then(subs => {
 
@@ -106,6 +120,17 @@
             })
         } else {
             console.log("No Permite Service Worker")
+        }
+
+        document.getElementById("menuInstalar").style.display = "none"
+        if (getPWADisplayMode() == "browser") {
+            document.getElementById("menuInstalar").style.display = "inline-block"
+        }
+
+        function Permiso() {
+            DetectarInactividad(60, function () {
+                document.location.href = "/Galeria/Index";
+            })
         }
 
     </script>

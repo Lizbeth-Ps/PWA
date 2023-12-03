@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\MiPrimeraAplicacionProgressiva.bundle.scp.css"
     },
     {
+      "Id": "D:\\Descargas\\PWA2\\PWA\\MiPrimeraAplicacionProgressiva\\wwwroot\\css\\mapares.css",
+      "PackagePath": "staticwebassets\\css\\mapares.css"
+    },
+    {
       "Id": "D:\\Descargas\\PWA2\\PWA\\MiPrimeraAplicacionProgressiva\\wwwroot\\css\\menu.css",
       "PackagePath": "staticwebassets\\css\\menu.css"
     },
@@ -17,6 +21,14 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "D:\\Descargas\\PWA2\\PWA\\MiPrimeraAplicacionProgressiva\\wwwroot\\img\\galery192.png",
+      "PackagePath": "staticwebassets\\img\\galery192.png"
+    },
+    {
+      "Id": "D:\\Descargas\\PWA2\\PWA\\MiPrimeraAplicacionProgressiva\\wwwroot\\img\\galery512.png",
+      "PackagePath": "staticwebassets\\img\\galery512.png"
+    },
+    {
       "Id": "D:\\Descargas\\PWA2\\PWA\\MiPrimeraAplicacionProgressiva\\wwwroot\\img\\icon-192.png",
       "PackagePath": "staticwebassets\\img\\icon-192.png"
     },
@@ -25,12 +37,24 @@
       "PackagePath": "staticwebassets\\img\\icon-512.png"
     },
     {
+      "Id": "D:\\Descargas\\PWA2\\PWA\\MiPrimeraAplicacionProgressiva\\wwwroot\\img\\icon-book192.png",
+      "PackagePath": "staticwebassets\\img\\icon-book192.png"
+    },
+    {
+      "Id": "D:\\Descargas\\PWA2\\PWA\\MiPrimeraAplicacionProgressiva\\wwwroot\\img\\icon-book512.png",
+      "PackagePath": "staticwebassets\\img\\icon-book512.png"
+    },
+    {
       "Id": "D:\\Descargas\\PWA2\\PWA\\MiPrimeraAplicacionProgressiva\\wwwroot\\img\\loading.gif",
       "PackagePath": "staticwebassets\\img\\loading.gif"
     },
     {
       "Id": "D:\\Descargas\\PWA2\\PWA\\MiPrimeraAplicacionProgressiva\\wwwroot\\img\\noFoto.png",
       "PackagePath": "staticwebassets\\img\\noFoto.png"
+    },
+    {
+      "Id": "D:\\Descargas\\PWA2\\PWA\\MiPrimeraAplicacionProgressiva\\wwwroot\\js\\contacto.js",
+      "PackagePath": "staticwebassets\\js\\contacto.js"
     },
     {
       "Id": "D:\\Descargas\\PWA2\\PWA\\MiPrimeraAplicacionProgressiva\\wwwroot\\js\\galeria.js",
@@ -47,6 +71,10 @@
     {
       "Id": "D:\\Descargas\\PWA2\\PWA\\MiPrimeraAplicacionProgressiva\\wwwroot\\js\\libro.js",
       "PackagePath": "staticwebassets\\js\\libro.js"
+    },
+    {
+      "Id": "D:\\Descargas\\PWA2\\PWA\\MiPrimeraAplicacionProgressiva\\wwwroot\\js\\mapares.js",
+      "PackagePath": "staticwebassets\\js\\mapares.js"
     },
     {
       "Id": "D:\\Descargas\\PWA2\\PWA\\MiPrimeraAplicacionProgressiva\\wwwroot\\js\\menu.js",
@@ -71,6 +99,10 @@
     {
       "Id": "D:\\Descargas\\PWA2\\PWA\\MiPrimeraAplicacionProgressiva\\wwwroot\\js\\tipolibro.js",
       "PackagePath": "staticwebassets\\js\\tipolibro.js"
+    },
+    {
+      "Id": "D:\\Descargas\\PWA2\\PWA\\MiPrimeraAplicacionProgressiva\\wwwroot\\js\\ubicacion.js",
+      "PackagePath": "staticwebassets\\js\\ubicacion.js"
     },
     {
       "Id": "D:\\Descargas\\PWA2\\PWA\\MiPrimeraAplicacionProgressiva\\wwwroot\\lib\\bootstrap\\LICENSE",

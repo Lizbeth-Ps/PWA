@@ -1,5 +1,5 @@
 {
-	"short_name": "PWA",
+	"short_name": "PWA App",
 	"name": "App PWA Net Core",
 	"icons": [
 		{
@@ -14,7 +14,52 @@
 		}
 	],
 	"start_url": "/Persona/",
-	"background_color": "#D1C4E9 ",
+	"scope": "/",
+	"background_color": "#e3b1c8",
 	"display": "standalone",
-	"theme_color": "#D1C4E9"
+	"theme_color": "#e5dde6",
+	"share_target": {
+		"action": "/Comentario/Index",
+		"params": {
+			"title": "titulo",
+			"text": "texto",
+			"url": "url"
+		}
+	},
+	"shortcuts": [
+		{
+			"name": "Libro",
+			"short_name": "Libro",
+			"url": "/Libro/Index",
+			"icons": [
+				{
+					"src": "/img/icon-book512.png",
+					"type": "image/png",
+					"sizes": "512x512"
+				},
+				{
+					"src": "/img/icon-book192.png",
+					"type": "image/png",
+					"sizes": "192x192"
+				}
+			]
+		},
+		{
+			"name": "Galeria",
+			"short_name": "Galeria",
+			"url": "/Galeria/Index",
+			"icons": [
+				{
+					"src": "/img/galery512.png",
+					"type": "image/png",
+					"sizes": "512x512"
+				},
+				{
+					"src": "/img/galery192.png",
+					"type": "image/png",
+					"sizes": "192x192"
+				}
+			]
+		}
+	]
 }

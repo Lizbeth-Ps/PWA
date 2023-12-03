@@ -26,6 +26,14 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = D:\Descargas\PWA2\PWA\MiPrimeraAplicacionProgressiva
 build_property._RazorSourceGeneratorDebug = 
 
+[D:/Descargas/PWA2/PWA/MiPrimeraAplicacionProgressiva/Views/Comentario/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tZW50YXJpb1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Descargas/PWA2/PWA/MiPrimeraAplicacionProgressiva/Views/Contactos/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29udGFjdG9zXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Descargas/PWA2/PWA/MiPrimeraAplicacionProgressiva/Views/Galeria/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR2FsZXJpYVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -60,6 +68,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/Descargas/PWA2/PWA/MiPrimeraAplicacionProgressiva/Views/TipoLibro/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGlwb0xpYnJvXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Descargas/PWA2/PWA/MiPrimeraAplicacionProgressiva/Views/Ubicacion/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVWJpY2FjaW9uXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Descargas/PWA2/PWA/MiPrimeraAplicacionProgressiva/Views/_ViewImports.cshtml]
