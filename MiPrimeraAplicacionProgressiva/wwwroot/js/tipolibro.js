@@ -67,7 +67,7 @@ function listarTipoLibro() {
 		callbackGuardar: function () {
 			var frm = new FormData();
 			var contenido = "Se guardo los cambios del tipo libro " + getN("nombre")
-			frm.append("parametroPorContenido", "Registro Satisfactorio_" + contenido + "_/img/icon-512.png")
+			frm.append("parametroPorContenido", "Registro Satisfactorio_" + contenido + "_/img/noti.png")
 			fetchPostSinLoading("Notificacion/enviarNotificaciones", "text", frm, () => { })
 			if (getN("iidtipolibro") != "") {
 				bc.postMessage(getN("iidtipolibro") + "_" + getN("nombre"))

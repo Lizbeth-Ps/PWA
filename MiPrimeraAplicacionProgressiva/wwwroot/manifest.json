@@ -3,7 +3,7 @@
 	"name": "App PWA Net Core",
 	"icons": [
 		{
-			"src": "/img/icon-192.png",
+			"src": "/img/descargar.png",
 			"type": "image/png",
 			"sizes": "192x192"
 		},

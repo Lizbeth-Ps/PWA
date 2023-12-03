@@ -44,8 +44,8 @@ body {
     font-size: 1rem;
     font-weight: 400;
     line-height: 1.5;
-    color: #A2C8CC;
-    background: var(--color-white);
+    color: #000;
+    background: #e2e3e7; /* Cambia el color de fondo a #e2e3e7 */
 }
 
 a,
@@ -59,6 +59,7 @@ button {
     background: none;
     text-decoration: none;
     color: #95fab9;
+    top:auto;
 }
 
 img,
@@ -74,7 +75,8 @@ video {
     max-width: 80rem;
     height: auto;
     margin: 0 auto;
-    padding: 0 1rem;
+    /*padding: 0 1rem;*/
+    padding: 5px;
 }
 
 @media only screen and (min-width: 768px) {
@@ -99,7 +101,7 @@ video {
     left: 0;
     top: 0;
     width: 100%;
-    height: auto;
+    height: 70px;
     z-index: 999;
     margin: 0 auto;
     background: var(--color-white);
@@ -110,7 +112,7 @@ video {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        gap: 2rem;
+       /* gap: 2rem;*/
         max-width: 100%;
         height: auto;
         padding: 0.75rem 0;
@@ -147,11 +149,11 @@ video {
 }
 
 .header .menu {
-    position: fixed;
-    top: 0;
-    left: -19rem;
-    width: 19rem;
-    height: 100%;
+    position: relative; /* Cambiado de relative a absolute */
+    top: 40px; /* Puedes ajustar el valor según la altura de tu encabezado */
+    left: 0;
+    width: 100%;
+    height: 80px;
     z-index: 999;
     opacity: 0;
     overflow-y: auto;
@@ -160,6 +162,14 @@ video {
     box-shadow: var(--shadow-medium);
     transition: all 0.5s ease;
 }
+
+    .header .menu.is-active {
+        top: 80px; /* Cambiado de left a top */
+        opacity: 1;
+        visibility: visible;
+    }
+
+
 
 @media only screen and (min-width: 768px) {
     .header .menu {
@@ -182,8 +192,10 @@ video {
 
 .header .menu-block {
     width: 100%;
-    height: auto;
-    margin: 2rem 0;
+    height: 80px;
+    /*margin: 2rem 0;*/
+    padding:5px;
+    margin-top:15px;
 }
 
 @media only screen and (min-width: 768px) {
@@ -206,7 +218,7 @@ video {
 }
 
 .header .menu-link {
-    display: block;
+    /*display: block;*/
     font-family: inherit;
     font-size: 1rem;
     font-weight: 500;
@@ -220,7 +232,7 @@ video {
 }
 
     .header .menu-link:hover {
-        color: #ffe5f0;
+        color: #ffeebc;
     }
 
 @media only screen and (min-width: 768px) {
@@ -249,14 +261,15 @@ video {
     }
 
 .btn {
-    background-color: #f3a8c2;
+    background-color: #ffeebc; /* Cambia el color de fondo de los botones */
     color: #fff; /* Puedes ajustar el color del texto según la visibilidad en el nuevo fondo */
-    border-color: #f3a8c2; /* Puedes ajustar el color del borde según el fondo del botón */
+    border-color: #ffeebc; /* Puedes ajustar el color del borde según el fondo del botón */
 }
 
     .btn:hover {
-        background-color: #c999af; /* Cambia el color al pasar el mouse según tu paleta de colores pastel */
-        border-color: #c999af; /* Ajusta el color del borde al pasar el mouse */
+        background-color: #caacf9; /* Cambia el color al pasar el mouse según tu paleta de colores pastel */
+        border-color: #caacf9; /* Ajusta el color del borde al pasar el mouse */
         color: #fff; /* Puedes ajustar el color del texto al pasar el mouse según la visibilidad en el nuevo fondo */
     }
+
 
